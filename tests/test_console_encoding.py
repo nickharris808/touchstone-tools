@@ -23,8 +23,12 @@ NARROW = ["cp1252", "ascii"]
 
 def _run(args: list[str], encoding: str) -> subprocess.CompletedProcess:
     env = dict(os.environ, PYTHONPATH=str(HERE / "src"), PYTHONIOENCODING=encoding)
+    # `text=True` alone decodes with the PARENT's locale encoding (cp1252 on a
+    # Windows runner), so a child writing UTF-8 came back as mojibake. Decode
+    # with exactly what the child was told to write.
     return subprocess.run([sys.executable, "-m", "touchstone_tools.cli", *args],
-                          cwd=HERE, capture_output=True, text=True, env=env)
+                          cwd=HERE, capture_output=True, text=True, env=env,
+                          encoding=encoding)
 
 
 @pytest.mark.parametrize("encoding", NARROW)
