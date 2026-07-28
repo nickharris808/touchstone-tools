@@ -1,6 +1,8 @@
 # touchstone-tools
 
-![CI](https://github.com/nickharris808/touchstone-tools/actions/workflows/ci.yml/badge.svg) ![Python](https://img.shields.io/badge/python-3.10%20%E2%80%93%203.13-blue) ![Licence](https://img.shields.io/badge/licence-Apache--2.0-green) ![Tests](https://img.shields.io/badge/tests-47%20passing-brightgreen)
+![CI](https://github.com/nickharris808/touchstone-tools/actions/workflows/ci.yml/badge.svg) ![Python](https://img.shields.io/badge/python-3.10%20%E2%80%93%203.13-blue) ![Licence](https://img.shields.io/badge/licence-Apache--2.0-green) ![Tests](https://img.shields.io/badge/tests-77%20passing-brightgreen)
+
+📖 **[Documentation site](https://nickharris808.github.io/physics-lint/)** — the portfolio narrative, the concepts, a full walkthrough, and what all of this proves (and does not).
 
 **Read, write and convert N-port network files — and refuse to emit one that
 cannot be read back.**
