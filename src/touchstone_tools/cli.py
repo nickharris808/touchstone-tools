@@ -21,7 +21,7 @@ import numpy as np
 
 from . import __version__
 from .io import FORMATS, FREQ_UNITS, read_touchstone, write_touchstone
-from .network import TouchstoneError
+from .network import OHM, TouchstoneError
 
 
 def _info(net) -> dict:
@@ -87,7 +87,7 @@ def main(argv: list[str] | None = None) -> int:
             print(f"{Path(d['file']).name}: {d['n_ports']}-port {d['kind'].upper()}, "
                   f"{d['n_freq']} points, "
                   f"{d['freq_start_hz']/1e9:.4g}-{d['freq_stop_hz']/1e9:.4g} GHz, "
-                  f"z0={d['z0_ohm']:g}Ω")
+                  f"z0={d['z0_ohm']:g}{OHM}")
             print(f"  max |entry|        {d['max_abs']:.6g}")
             print(f"  max |S - S^T|      {d['max_abs_asymmetry']:.3e}  "
                   "(reported, not judged)")
@@ -111,7 +111,7 @@ def main(argv: list[str] | None = None) -> int:
         return 2
 
     print(f"wrote {written}  ({out.n_ports}-port {out.kind.upper()}, "
-          f"{out.n_freq} points, z0={out.z0:g}Ω, {args.fmt.upper()})")
+          f"{out.n_freq} points, z0={out.z0:g}{OHM}, {args.fmt.upper()})")
     return 0
 
 

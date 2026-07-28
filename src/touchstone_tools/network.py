@@ -15,6 +15,7 @@ answer to a question with no answer.
 
 from __future__ import annotations
 
+import sys
 from dataclasses import dataclass, replace
 
 import numpy as np
@@ -27,6 +28,27 @@ __all__ = ["Network", "TouchstoneError", "s_to_z", "z_to_s", "s_to_y", "y_to_s",
 #: than inverted into noise; float64 gives about 16 digits, so this leaves
 #: four orders of margin over the arithmetic itself.
 SINGULAR_RCOND = 1e-12
+
+
+
+def _ohm() -> str:
+    """The ohm sign, degraded to ASCII when stdout cannot encode it.
+
+    A Windows console defaults to cp1252, which has no U+03A9. Every one of
+    this package's subcommands printed it, so on that console they all died
+    with ``UnicodeEncodeError`` after the work was done -- a non-zero exit and
+    no output, which a caller reading the exit code cannot distinguish from a
+    real refusal. Degrading the glyph is strictly better than dying.
+    """
+    enc = getattr(sys.stdout, "encoding", None) or "ascii"
+    try:
+        "\u03a9".encode(enc)
+    except (UnicodeEncodeError, LookupError):
+        return " ohm"
+    return "\u03a9"
+
+
+OHM = _ohm()
 
 
 class TouchstoneError(ValueError):
@@ -62,7 +84,7 @@ class Network:
 
     def __repr__(self) -> str:  # pragma: no cover - cosmetic
         return (f"Network({self.n_ports}-port {self.kind.upper()}, {self.n_freq} freq, "
-                f"{self.freq_hz[0]/1e9:.4g}-{self.freq_hz[-1]/1e9:.4g} GHz, z0={self.z0}Ω)")
+                f"{self.freq_hz[0]/1e9:.4g}-{self.freq_hz[-1]/1e9:.4g} GHz, z0={self.z0}{OHM})")
 
     # ------------------------------------------------------------ conversions
 
