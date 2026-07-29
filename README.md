@@ -1,6 +1,6 @@
 # touchstone-tools
 
-![CI](https://github.com/nickharris808/touchstone-tools/actions/workflows/ci.yml/badge.svg) ![Python](https://img.shields.io/badge/python-3.10%20%E2%80%93%203.13-blue) ![Licence](https://img.shields.io/badge/licence-Apache--2.0-green) ![Tests](https://img.shields.io/badge/tests-85%20passing-brightgreen)
+![CI](https://github.com/nickharris808/touchstone-tools/actions/workflows/ci.yml/badge.svg) ![Python](https://img.shields.io/badge/python-3.10%20%E2%80%93%203.13-blue) ![Licence](https://img.shields.io/badge/licence-Apache--2.0-green) ![Tests](https://img.shields.io/badge/tests-91%20passing-brightgreen)
 
 📖 **[Documentation site](https://nickharris808.github.io/physics-lint/)** — the portfolio narrative, the concepts, a full walkthrough, and what all of this proves (and does not).
 
@@ -199,3 +199,11 @@ passive *by construction* — so it cannot fail those laws whatever its paramete
 ## Licence
 
 Apache-2.0. See [LICENSE](LICENSE); copyright in [NOTICE](NOTICE).
+
+## Contributing
+
+One non-negotiable rule here: the writer must refuse rather than emit a file it cannot stand behind — `NaN`, a backwards sweep, an extension that contradicts the port count. [`CONTRIBUTING.md`](CONTRIBUTING.md) has the detail. Each sibling repository states its own, and they differ — that is deliberate, and it is why each is trustworthy on its own terms.
+
+## Citation
+
+[`CITATION.cff`](CITATION.cff) is machine-readable; GitHub renders a “Cite this repository” button from it.
